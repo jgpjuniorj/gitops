@@ -15,7 +15,7 @@ spec:
           - path: envs/hlg/*/overlay
   template:
     metadata:
-      name: '{{ index .path.segments 2 }}-hlg'
+      name: '{{ $app := index .path.segments 2 }}{{ if hasSuffix $app "-hlg" }}{{ $app }}{{ else }}{{ $app }}-hlg{{ end }}'
     spec:
       project: '{{ if eq (index .path.segments 2) "cloudflared" }}project-core{{ else }}project-negocio{{ end }}'
       source:

@@ -15,7 +15,7 @@ spec:
           - path: envs/prd/*/overlay
   template:
     metadata:
-      name: '{{ index .path.segments 2 }}-prd'
+      name: '{{ $app := index .path.segments 2 }}{{ if hasSuffix $app "-prd" }}{{ $app }}{{ else }}{{ $app }}-prd{{ end }}'
     spec:
       project: '{{ if eq (index .path.segments 2) "cloudflared" }}project-core{{ else }}project-negocio{{ end }}'
       source:
