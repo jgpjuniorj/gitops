@@ -19,7 +19,7 @@
     "namespace": "cidade-viva"
   },
   "spec": {
-    "ingressClassName": "cloudflare-tunnel",
+    "ingressClassName": "nginx",
     "rules": [
       {
         "host": "cidade-viva.example.com",
