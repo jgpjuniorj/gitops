@@ -7,4 +7,4 @@ resources:
   - argocd-config.yaml
   - argocd-rbac.yaml
   - appsets.yaml
-
+  - gestao-financeira-prd.yaml

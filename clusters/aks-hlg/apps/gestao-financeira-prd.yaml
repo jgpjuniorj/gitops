@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: gestao-financeira-prd
+  namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: 1
+spec:
+  project: project-negocio
+  source:
+    repoURL: https://github.com/jgpjuniorj/gitops.git
+    targetRevision: main
+    path: envs/prd/gestao-financeira/overlay
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: gestao-financeira
+  ignoreDifferences:
+    - group: apps
+      kind: Deployment
+      jsonPointers:
+        - /spec/replicas
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+      - RespectIgnoreDifferences=true
