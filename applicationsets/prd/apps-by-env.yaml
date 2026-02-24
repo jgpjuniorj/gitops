@@ -15,16 +15,16 @@ spec:
           - path: envs/prd/*/overlay
   template:
     metadata:
-      name: '{{path[2]}}-prd'
+      name: '{{ index .path.segments 2 }}-prd'
     spec:
-      project: '{{ if eq path[2] "cloudflared" }}project-core{{ else }}project-negocio{{ end }}'
+      project: '{{ if eq (index .path.segments 2) "cloudflared" }}project-core{{ else }}project-negocio{{ end }}'
       source:
         repoURL: https://github.com/jgpjuniorj/gitops.git
         targetRevision: main
-        path: '{{path}}'
+        path: '{{ .path.path }}'
       destination:
         server: https://kubernetes.default.svc
-        namespace: '{{path[2]}}'
+        namespace: '{{ index .path.segments 2 }}'
       ignoreDifferences:
         - group: apps
           kind: Deployment

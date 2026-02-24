@@ -27,14 +27,14 @@ spec:
                 - path: 'envs/{{env}}/*/overlay'
   template:
     metadata:
-      name: '{{path[2]}}-{{env}}'
+      name: '{{ index .path.segments 2 }}-{{ .env }}'
     spec:
       project: project-negocio
       source:
         repoURL: https://github.com/jgpjuniorj/gitops.git
         targetRevision: main
-        path: '{{path}}'
+        path: '{{ .path.path }}'
       destination:
-        server: '{{server}}'
-        namespace: '{{path[2]}}'
+        server: '{{ .server }}'
+        namespace: '{{ index .path.segments 2 }}'
       syncPolicy: {}
