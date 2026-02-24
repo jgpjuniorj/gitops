@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: argocd-rbac-cm
+  namespace: argocd
+data:
+  policy.default: role:readonly
+  scopes: '[groups]'
+  policy.csv: |
+    p, role:readonly, applications, get, */*, allow
+    p, role:readonly, projects, get, *, allow
+
+    # Exemplo de admin via grupo (ajuste para o seu IdP)
+    g, argocd-admins, role:admin

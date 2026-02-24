@@ -1,0 +1,40 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: apps-matrix
+  namespace: argocd
+spec:
+  goTemplate: true
+  goTemplateOptions:
+    - missingkey=error
+  generators:
+    - matrix:
+        generators:
+          - list:
+              elements:
+                - env: hlg
+                  clusterName: aks-hlg
+                  server: https://aks-hlg-api-server
+                  automated: "true"
+                - env: prd
+                  clusterName: aks-prd
+                  server: https://aks-prd-api-server
+                  automated: "false"
+          - git:
+              repoURL: https://github.com/sua-org/gitops.git
+              revision: main
+              directories:
+                - path: 'envs/{{env}}/*/overlay'
+  template:
+    metadata:
+      name: '{{path[2]}}-{{env}}'
+    spec:
+      project: project-negocio
+      source:
+        repoURL: https://github.com/sua-org/gitops.git
+        targetRevision: main
+        path: '{{path}}'
+      destination:
+        server: '{{server}}'
+        namespace: '{{path[2]}}'
+      syncPolicy: {}

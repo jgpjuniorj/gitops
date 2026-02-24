@@ -1,0 +1,36 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: apps-by-env-prd
+  namespace: argocd
+spec:
+  goTemplate: true
+  goTemplateOptions:
+    - missingkey=error
+  generators:
+    - git:
+        repoURL: https://github.com/sua-org/gitops.git
+        revision: main
+        directories:
+          - path: envs/prd/*/overlay
+  template:
+    metadata:
+      name: '{{path[2]}}-prd'
+    spec:
+      project: '{{ if eq path[2] "cloudflared" }}project-core{{ else }}project-negocio{{ end }}'
+      source:
+        repoURL: https://github.com/sua-org/gitops.git
+        targetRevision: main
+        path: '{{path}}'
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: '{{path[2]}}'
+      ignoreDifferences:
+        - group: apps
+          kind: Deployment
+          jsonPointers:
+            - /spec/replicas
+      syncPolicy:
+        syncOptions:
+          - CreateNamespace=true
+          - RespectIgnoreDifferences=true
