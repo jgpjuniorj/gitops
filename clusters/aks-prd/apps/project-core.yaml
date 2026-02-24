@@ -6,7 +6,7 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "-2"
 spec:
-  description: Apps de infraestrutura/plataforma (ex.: cloudflared)
+  description: 'Apps de infraestrutura/plataforma (ex.: cloudflared)'
   sourceRepos:
     - https://github.com/jgpjuniorj/gitops.git
   destinations:
