@@ -1,0 +1,44 @@
+{
+  "apiVersion": "networking.k8s.io/v1",
+  "kind": "Ingress",
+  "metadata": {
+    "annotations": {
+      "kubernetes.io/ingress.class": "nginx",
+      "meta.helm.sh/release-name": "gestao-financeira",
+      "meta.helm.sh/release-namespace": "gestao-financeira"
+    },
+    "labels": {
+      "app.kubernetes.io/component": "application",
+      "app.kubernetes.io/instance": "gestao-financeira",
+      "app.kubernetes.io/managed-by": "Helm",
+      "app.kubernetes.io/name": "gestao-financeira",
+      "helm.sh/chart": "gestao-financeira-0.1.0"
+    },
+    "name": "gestao-financeira-gestao-financeira",
+    "namespace": "gestao-financeira"
+  },
+  "spec": {
+    "ingressClassName": "nginx",
+    "rules": [
+      {
+        "host": "gestao-financeira.gestao-financeira.svc.cluster.local",
+        "http": {
+          "paths": [
+            {
+              "backend": {
+                "service": {
+                  "name": "gestao-financeira-gestao-financeira",
+                  "port": {
+                    "number": 80
+                  }
+                }
+              },
+              "path": "/",
+              "pathType": "Prefix"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

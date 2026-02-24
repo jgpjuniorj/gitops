@@ -1,0 +1,36 @@
+{
+  "apiVersion": "v1",
+  "kind": "Service",
+  "metadata": {
+    "annotations": {
+      "meta.helm.sh/release-name": "gestao-financeira",
+      "meta.helm.sh/release-namespace": "gestao-financeira"
+    },
+    "labels": {
+      "app.kubernetes.io/component": "database",
+      "app.kubernetes.io/instance": "gestao-financeira",
+      "app.kubernetes.io/managed-by": "Helm",
+      "app.kubernetes.io/name": "gestao-financeira",
+      "helm.sh/chart": "gestao-financeira-0.1.0"
+    },
+    "name": "gestao-financeira-gestao-financeira-db",
+    "namespace": "gestao-financeira"
+  },
+  "spec": {
+    "ports": [
+      {
+        "name": "mysql",
+        "port": 3306,
+        "protocol": "TCP",
+        "targetPort": 3306
+      }
+    ],
+    "selector": {
+      "app.kubernetes.io/component": "database",
+      "app.kubernetes.io/instance": "gestao-financeira",
+      "app.kubernetes.io/name": "gestao-financeira"
+    },
+    "sessionAffinity": "None",
+    "type": "ClusterIP"
+  }
+}
