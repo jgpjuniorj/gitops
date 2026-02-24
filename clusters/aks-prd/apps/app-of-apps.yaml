@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/sua-org/gitops.git
+    repoURL: https://github.com/jgpjuniorj/gitops.git
     targetRevision: main
     path: clusters/aks-prd/apps
   destination:

@@ -9,7 +9,7 @@ spec:
     - missingkey=error
   generators:
     - git:
-        repoURL: https://github.com/sua-org/gitops.git
+        repoURL: https://github.com/jgpjuniorj/gitops.git
         revision: main
         directories:
           - path: envs/prd/*/overlay
@@ -19,7 +19,7 @@ spec:
     spec:
       project: '{{ if eq path[2] "cloudflared" }}project-core{{ else }}project-negocio{{ end }}'
       source:
-        repoURL: https://github.com/sua-org/gitops.git
+        repoURL: https://github.com/jgpjuniorj/gitops.git
         targetRevision: main
         path: '{{path}}'
       destination:

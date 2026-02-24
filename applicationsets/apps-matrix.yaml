@@ -21,7 +21,7 @@ spec:
                   server: https://aks-prd-api-server
                   automated: "false"
           - git:
-              repoURL: https://github.com/sua-org/gitops.git
+              repoURL: https://github.com/jgpjuniorj/gitops.git
               revision: main
               directories:
                 - path: 'envs/{{env}}/*/overlay'
@@ -31,7 +31,7 @@ spec:
     spec:
       project: project-negocio
       source:
-        repoURL: https://github.com/sua-org/gitops.git
+        repoURL: https://github.com/jgpjuniorj/gitops.git
         targetRevision: main
         path: '{{path}}'
       destination:

@@ -8,7 +8,7 @@ metadata:
 spec:
   description: Apps de negócio (firefly, gda, etc.)
   sourceRepos:
-    - https://github.com/sua-org/gitops.git
+    - https://github.com/jgpjuniorj/gitops.git
   destinations:
     - server: https://kubernetes.default.svc
       namespace: "*"
