@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: cloudflared-hlg
+  namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: 1
+spec:
+  project: project-core
+  source:
+    repoURL: https://github.com/jgpjuniorj/gitops.git
+    targetRevision: main
+    path: envs/hlg/cloudflared/overlay
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: cloudflared
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
