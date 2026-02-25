@@ -7,6 +7,8 @@ spec:
   goTemplate: true
   goTemplateOptions:
     - missingkey=error
+  syncPolicy:
+    preserveResourcesOnDeletion: true
   generators:
     - git:
         repoURL: https://github.com/jgpjuniorj/gitops.git
@@ -15,7 +17,7 @@ spec:
           - path: envs/hlg/*/overlay
   template:
     metadata:
-      name: '{{ $app := index .path.segments 2 }}{{ if hasSuffix $app "-hlg" }}{{ $app }}{{ else }}{{ $app }}-hlg{{ end }}'
+      name: '{{ $app := index .path.segments 2 }}{{ if hasSuffix "-hlg" $app }}{{ $app }}{{ else }}{{ $app }}-hlg{{ end }}'
     spec:
       project: '{{ if eq (index .path.segments 2) "cloudflared" }}project-core{{ else }}project-negocio{{ end }}'
       source:

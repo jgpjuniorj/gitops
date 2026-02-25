@@ -16,7 +16,7 @@ spec:
       writeBackTarget: "kustomization"
 
   applicationRefs:
-    - namePattern: "gestao-financeira-hlg"
+    - namePattern: "gestao-financeira-hlg*"
       images:
         - alias: "app"
           imageName: "ghcr.io/jgpjuniorj/gestao-financeira-hlg"
