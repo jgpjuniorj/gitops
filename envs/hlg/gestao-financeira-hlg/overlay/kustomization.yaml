@@ -5,5 +5,5 @@ resources:
 namespace: gestao-financeira-hlg
 images:
   - name: ghcr.io/jgpjuniorj/gestao-financeira-hlg
-    newTag: e1f45b29567215e4065507c70afdd231092d82f5
+    newTag: ac477292e173940913e48f40bf126275345196eb
     newName: ghcr.io/jgpjuniorj/gestao-financeira-hlg
