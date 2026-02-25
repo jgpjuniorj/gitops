@@ -94,7 +94,7 @@
                 }
               }
             ],
-            "image": "gestao-financeira-hlg:latest",
+            "image": "ghcr.io/jgpjuniorj/gestao-financeira-hlg:1fe93c0aff76f80003ad5249283cb0d7e71045b4",
             "imagePullPolicy": "IfNotPresent",
             "livenessProbe": {
               "failureThreshold": 3,
