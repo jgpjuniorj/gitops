@@ -1,11 +1,9 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-
 resources:
   - ../base
-
 namespace: gestao-financeira-hlg
-
 images:
   - name: ghcr.io/jgpjuniorj/gestao-financeira-hlg
-    newTag: 9d522905d569bdeed49428dae91bb0a281f18682
+    newTag: e1f45b29567215e4065507c70afdd231092d82f5
+    newName: ghcr.io/jgpjuniorj/gestao-financeira-hlg
