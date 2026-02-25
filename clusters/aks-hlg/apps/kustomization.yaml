@@ -6,5 +6,6 @@ resources:
   - project-negocio.yaml
   - argocd-config.yaml
   - argocd-rbac.yaml
+  - argocd-image-updater
   - appsets.yaml
   - gestao-financeira-prd.yaml
