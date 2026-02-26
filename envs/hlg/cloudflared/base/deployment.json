@@ -24,7 +24,7 @@
     "template": {
       "metadata": {
         "annotations": {
-          "kubectl.kubernetes.io/restartedAt": "2026-02-24T14:00:32-03:00"
+          "kubectl.kubernetes.io/restartedAt": "2026-02-26T00:00:00-03:00"
         },
         "labels": {
           "app": "cloudflared"
