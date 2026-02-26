@@ -12,7 +12,7 @@ spec:
         repoURL: https://github.com/jgpjuniorj/gitops.git
         revision: main
         directories:
-          - path: envs/prd/*/overlay
+          - path: envs/prd/gestao-financeira/overlay
   template:
     metadata:
       name: '{{ $app := index .path.segments 2 }}{{ if hasSuffix "-prd" $app }}{{ $app }}{{ else }}{{ $app }}-prd{{ end }}'
