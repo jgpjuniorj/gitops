@@ -6,7 +6,7 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "-2"
 spec:
-  description: 'Apps de negócio (firefly, gda, etc.)'
+  description: 'Apps de negócio (gestao-financeira-prd)'
   sourceRepos:
     - https://github.com/jgpjuniorj/gitops.git
   destinations:

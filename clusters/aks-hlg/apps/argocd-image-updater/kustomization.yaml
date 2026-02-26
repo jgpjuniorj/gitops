@@ -7,8 +7,5 @@ resources:
   # Official upstream base (controller + CRDs + RBAC + default config)
   - github.com/argoproj-labs/argocd-image-updater/config/default?ref=stable
 
-  # Our ImageUpdater rules (per app)
-  - imageupdater-gestao-financeira-hlg.yaml
-
 patchesStrategicMerge:
   - configmap-patch.yaml
