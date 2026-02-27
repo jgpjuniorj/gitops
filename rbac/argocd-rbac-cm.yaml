@@ -11,4 +11,7 @@ data:
     p, role:readonly, projects, get, *, allow
 
     # Exemplo de admin via grupo (ajuste para o seu IdP)
-    g, argocd-admins, role:admin
+    p, admin, applications, *, */*, allow
+    p, admin, projects, *, *, allow
+    p, admin, clusters, *, *, allow
+    p, admin, repositories, *, *, allow
