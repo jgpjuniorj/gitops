@@ -1,0 +1,29 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: wordpress-db
+
+helmCharts:
+  - name: mariadb
+    repo: https://charts.bitnami.com/bitnami
+    version: 14.4.1
+    releaseName: wordpress-db
+    namespace: wordpress-db
+    valuesInline:
+      auth:
+        rootPassword: admin1234
+        username: wordpress
+        password: wordpresspass
+        database: wordpress
+      primary:
+        persistence:
+          enabled: true
+          size: 5Gi
+        resources:
+          requests:
+            cpu: 100m
+            memory: 256Mi
+          limits:
+            memory: 512Mi
+      secondary:
+        replicaCount: 0
