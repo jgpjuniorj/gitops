@@ -1,7 +1,7 @@
 {
   "apiVersion": "v1",
   "data": {
-    "config.yml": "tunnel: notebook\ncredentials-file: /etc/cloudflared/creds/credentials.json\n\ningress:\n  - hostname: finan.jgpjunior.online\n    service: http://gestao-financeira-gestao-financeira.gestao-financeira.svc.cluster.local:80\n  - hostname: argocd.jgpjunior.online\n    service: https://argocd-server.argocd.svc.cluster.local:80\n    originRequest:\n      noTLSVerify: true\n  - service: http_status:404\n"
+    "config.yml": "tunnel: notebook\ncredentials-file: /etc/cloudflared/creds/credentials.json\n\ningress:\n  - hostname: finan.jgpjunior.online\n    service: http://gestao-financeira-gestao-financeira.gestao-financeira.svc.cluster.local:80\n  - hostname: argocd.jgpjunior.online\n    service: https://argocd-server.argocd.svc.cluster.local:80\n    originRequest:\n      noTLSVerify: true\n  - hostname: ma.imports.jgpjunior.online\n    service: http://wp-wordpress.wordpress.svc.cluster.local:80\n  - service: http_status:404\n"
   },
   "kind": "ConfigMap",
   "metadata": {

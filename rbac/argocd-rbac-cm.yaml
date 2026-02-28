@@ -4,14 +4,16 @@ metadata:
   name: argocd-rbac-cm
   namespace: argocd
 data:
-  policy.default: role:readonly
+  policy.default: role:admin
   scopes: '[groups]'
   policy.csv: |
     p, role:readonly, applications, get, */*, allow
     p, role:readonly, projects, get, *, allow
 
     # Exemplo de admin via grupo (ajuste para o seu IdP)
-    p, admin, applications, *, */*, allow
-    p, admin, projects, *, *, allow
-    p, admin, clusters, *, *, allow
-    p, admin, repositories, *, *, allow
+    p, role:admin, applications, *, */*, allow
+    p, role:admin, projects, *, *, allow
+    p, role:admin, clusters, *, *, allow
+    p, role:admin, repositories, *, *, allow
+
+    g, admin, role:admin
